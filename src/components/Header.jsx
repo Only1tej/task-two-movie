@@ -70,12 +70,12 @@ const Header = () => {
                             <p className='flex items-center'>97%</p>
                         </div>
                     </div>
-                    <div className='mb-[16px] w-[302px] h-[72px]'>
+                    <div className='mb-[40px] w-[302px] h-[72px]'>
                         <p className='font-regular font-medium text-sm'>John Wick is on the run after killing a member of the international assassins' guild, and with a $14 million price tag on his head, he is the target of hit men and women everywhere.</p>
                     </div>
                     <div className="flex flex-row bg-[#BE123C] w-[169px] h-[36px] rounded-md">
                         <img src={play} alt="play" className='w-[20px] h-[20px] ml-[16px] self-center' />
-                        <button className='ml-[8px] nr-[16px] font-regular text-sm leading-6 font-bold text-white'>WATCH TRAILER</button>
+                        <button className='ml-[8px] mr-[16px] font-regular text-sm leading-6 font-bold text-white'>WATCH TRAILER</button>
                     </div>
                 </div>
             </div>

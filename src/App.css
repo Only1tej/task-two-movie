@@ -2,3 +2,7 @@
   font-family: "Regular";
   src: url("./fonts/DMSans-Regular.ttf") format("truetype");
 }
+@font-face {
+  font-family: "Regular";
+  src: url("./fonts/Poppins-Regular.ttf") format("truetype");
+}
