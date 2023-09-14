@@ -8,3 +8,12 @@
 .font-poppin {
   font-family: "Regular";
 }
+
+.heart-icon {
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.heart-icon.color {
+  color: red;
+}
