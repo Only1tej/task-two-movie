@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import '../index.css'
 import tvSeries from '../assets/TV Show.png'
 import tv from '../assets/tv.jpg'
 import home from '../assets/Home.png'
@@ -11,20 +12,43 @@ import list from '../assets/List.png'
 import star from '../assets/Star.png'
 import play1 from '../assets/Play (1).png'
 
-const MovieDetails = ({ title, release_date, poster_path, vote_average, overview, original_language, popularity }) => {
+const MovieDetails = ({ title, release_date, poster_path, vote_average, vote_count, overview, original_language, popularity }) => {
     const { movieId } = useParams()
     const [movie, setMovie] = useState(null)
 
     useEffect(() => {
         fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=986c9935e1e74f8333fab79bb69892a9`)
+            // https://api.themoviedb.org/3/movie/{movie_id}
             .then((response) => response.json())
             .then((data) => setMovie(data))
             .catch((error) => console.error(error))
     }, [movieId])
-
+    console.log(movie);
     if (!movie) {
-        return <div>Loading...</div>
+        return (
+            <div className="loadingSpinnerContainer">
+                <div className="loadingSpinner"></div>
+            </div>
+        )
     }
+
+    // const newDate = release_date
+    // const date = new Date(newDate)
+    // const formatDate = date.toUTCString()
+    // release_date = formatDate
+    // console.log(release_date);
+
+    const currDate = release_date
+    const ft = new Date(currDate)
+    if (typeof ft === 'object' && ft !== null && 'toUTCString' in ft) {
+        // console.log("The data type is", typeof ft)
+        // console.log(ft.toUTCString())
+        console.log(ft);
+    }
+    // else {
+    //     console.log("Invalid Date Object")
+    // }
+    const utcDate = release_date
 
     return (
         <div className='w-[1512px] h-[982px] flex flex-row'>
@@ -69,17 +93,30 @@ const MovieDetails = ({ title, release_date, poster_path, vote_average, overview
             <div>
                 {/* Movie details */}
                 <div className=' w-[1198px]'>
-                    {/*  <span className='relative z-10 top-8 -right-[210px] hover:bg-red-900 bg-red-500 rounded-full'><FontAwesomeIcon icon={faHeart} style={{ color: "#ee1132", width: '2rem', height: '1rem' }} /></span>
-                    <img src={API_IMG + poster_path} alt="img" className='absolute w-[250px] h-[370px]' /> */}
                     {/* trailer */}
-                    {/* <iframe width="1198" height="449" src="https://www.youtube.com/embed/_kYd_" className='rounded-[20px]'></iframe> */}
                     <img src={play1} alt="play" className='relative z-20 top-[250px] left-[580px]' />
-                    <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} className=' w-[1198px] h-[449px]' />
+                    <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} className='rounded-xl w-[1198px] h-[449px]' />
                 </div>
                 <div className='flex flex-column'>
                     <div>
                         <div>
                             <p className='text-4xl font-poppin font-semibold mt-3' data-testid='movie-title'>{movie.title}</p>
+                            <p className='font-poppin font-bold text-xl mt-2' data-testid='movie-runtime'>{movie.runtime} minutes</p>
+                            {/* {movies.map((movie) => (
+                            <Home key={movie.id} {...movie} />
+                        ))}
+                    </div>  */}
+                            <div className='flex flex-row space-x-2'>
+                                {
+                                    movie.genres.map((genre) => (
+                                        <p className='bg-[#BE123C] px-4 text-white rounded-2xl'>{genre.name}</p>
+                                    ))
+                                }
+
+                                {/* <p className='bg-[#BE123C] px-4 text-white rounded-2xl'>{movie.genres[0].name}</p>
+                                <p className='bg-[#BE123C] px-4 text-white rounded-2xl'>{movie.genres[1].name}</p>
+                                <p className='bg-[#BE123C] px-4 text-white rounded-2xl'>{movie.genres[2].name}</p> */}
+                            </div>
                             <p className='text-xl font-medium font-poppin' data-testid='movie-release-date'>{movie.release_date}</p>
                         </div>
                         <div className='w-[774px] h-[90px]'>
@@ -88,6 +125,7 @@ const MovieDetails = ({ title, release_date, poster_path, vote_average, overview
                             <p className='text-xl font-normal font-poppin mt-4' data-testid='movie-overview'>{movie.overview}</p>
                             <p className='w-[300px] bg-[#BE123C] pt-[13px] pb-[12px] px-[86px] my-[18px] rounded-[10px] font-poppin font-bold text-white' >LANGUAGE: {movie.original_language.toUpperCase()}</p>
                             <p className='w-[300px] bg-[#BE123C] pt-[13px] pb-[12px] px-[66px] mb-[12px] rounded-[10px] font-poppin font-bold text-white'>POPULARITY: {movie.popularity}</p>
+
                         </div>
                     </div>
                     <div className='flex flex-column'>
@@ -95,6 +133,7 @@ const MovieDetails = ({ title, release_date, poster_path, vote_average, overview
 
                         <div className='w-[360px] ml-[26px] mr-[71px]'>
                             <div className='flex flex-row justify-end mb-[24px] mt-[29px]'>
+                                <p className='font-poppin font-semibold mr-40'>Votes: {movie.vote_count}</p>
                                 <img src={star} alt="star" className='w-[30px] h-[30px] mr-1' />
                                 <span className='flex items-center font-poppin font-bold text-[#E8E8E8]'>{movie.vote_average}/10</span>
                             </div>

@@ -18,6 +18,13 @@ function Intro({ }) {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
+        if (!movies) {
+            return (
+                <div className="loadingSpinnerContainer">
+                    <div className="loadingSpinner"></div>
+                </div>
+            )
+        }
         fetch(API_SEARCH1)
             .then((res) => res.json())
             .then((data) => {
@@ -26,7 +33,14 @@ function Intro({ }) {
             })
             .catch((error) => console.error(error));
     }, []);
-
+    if (!movies) {
+        return (
+            <div className="loadingSpinnerContainer">
+                <div className="loadingSpinner"></div>
+            </div>
+        )
+    }
+    console.log(movies);
     const slicedMovies = movies.slice(0, 10)
     return (
         <>
@@ -38,7 +52,8 @@ function Intro({ }) {
                             <Home key={movie.id} {...movie} />
                         ))}
                     </div> */}
-                    <div className="grid lg:grid-cols-4 sm:grid-cols-1 md:grid-cols-2 ml-[98px] mt-[161px] mr-[102px] mb-[147px] ">
+                    <h1 className="font-regular text-4xl font-bold mt-[70px] ml-[98px]">Featured Movie</h1>
+                    <div className="grid lg:grid-cols-4 sm:grid-cols-1 md:grid-cols-2 ml-[98px] mt-[100px] mr-[102px] mb-[147px] ">
                         {slicedMovies.map((movie) => (
                             <div>
                                 <a href={`/movies/${movie.id}`}>
