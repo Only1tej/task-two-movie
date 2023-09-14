@@ -48,7 +48,7 @@ const Home = ({ title, release_date, popularity, poster_path, overview, vote_ave
                     <span className='relative z-10 top-8 -right-[210px] hover:bg-red-900 bg-red-500 rounded-full'><FontAwesomeIcon icon={faHeart} style={{ color: "#ee1132", width: '2rem', height: '1rem' }} /></span>
                     <img src={API_IMG + poster_path} alt="img" className='absolute w-[250px] h-[370px]' />
                 </div>
-                <div>
+                <div className='mt-[390px]'>
                     <p className='text-xs font-bold font-regular my-[12px]'>{release_date}</p>
                     <h1 className='text-lg font-bold font-regular mb-[12px]'>{title}</h1>
                     <div className='flex space-x-[50px] w-[250px]'>
@@ -60,7 +60,6 @@ const Home = ({ title, release_date, popularity, poster_path, overview, vote_ave
                             <img src={png} alt="png" className='w-[16px] h-[17px] mr-[10px]' />
                             <span className='flex items-center'>{popularity}</span>
                         </div>
-
                     </div>
                 </div>
             </div>

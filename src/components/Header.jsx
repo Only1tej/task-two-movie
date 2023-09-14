@@ -41,16 +41,16 @@ const Header = () => {
     return (
         <div>
             <div style={{ backgroundImage: `url(${background})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', height: 600 }} className=' text-white w-full h-[600px] font-regular'>
-                <div className=' flex flex-row'>
+                <div className=' flex lg:flex-row md:flex-1'>
                     {/* Navbar */}
                     <div className='flex flex-row ml-[95px] mt-[15px] w-[186px] h-[50px]'>
                         <img src={tv} alt="tv" className='w-[50px] h-[50px]' />
                         <p className='text-white font-regular flex items-center ml-[24px]'>MovieBox</p>
                     </div>
-                    <div className='ml-[212px] mt-[22px] '>
-                        <input type="text" placeholder='What do you want to watch?' className='w-[525px] py-[6px] px-[10px] text-white placeholder-color outline-[#D1D5DB] outline outline-2 rounded-md  bg-transparent' />
+                    <div className='lg:ml-[212px] md:ml[120px] mt-[22px] '>
+                        <input type="text" placeholder='What do you want to watch?' className='lg:w-[525px] md:w-[300px] py-[6px] px-[10px] text-white placeholder-color outline-[#D1D5DB] outline outline-2 rounded-md  bg-transparent' />
                     </div>
-                    <div className='flex flex-row items-center w-[114px] h-[36px] ml-[210px] mt-[22px] mr-[98px]'>
+                    <div className='flex flex-row items-center w-[114px]  h-[36px] lg:ml-[210px] md:ml-[130px] mt-[22px] mr-[98px]'>
                         <a href="#" className=' mr-[27px] text-white font-bold'>Sign In</a>
                         <img src={hamburger} alt="hamburger" className='w-[36px] h-[36px]' />
                     </div>

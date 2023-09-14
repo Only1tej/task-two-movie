@@ -68,12 +68,12 @@ const MovieDetails = ({ title, release_date, poster_path, vote_average, overview
             </div>
             <div>
                 {/* Movie details */}
-                <div className='mt-[38px]'>
+                <div className=' w-[1198px]'>
                     {/*  <span className='relative z-10 top-8 -right-[210px] hover:bg-red-900 bg-red-500 rounded-full'><FontAwesomeIcon icon={faHeart} style={{ color: "#ee1132", width: '2rem', height: '1rem' }} /></span>
                     <img src={API_IMG + poster_path} alt="img" className='absolute w-[250px] h-[370px]' /> */}
                     {/* trailer */}
                     {/* <iframe width="1198" height="449" src="https://www.youtube.com/embed/_kYd_" className='rounded-[20px]'></iframe> */}
-                    <span className='relative z-20 top-[250px] -right-[580px]'><img src={play1} alt="play" /></span>
+                    <img src={play1} alt="play" className='relative z-20 top-[250px] left-[580px]' />
                     <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} className=' w-[1198px] h-[449px]' />
                 </div>
                 <div className='flex flex-column'>

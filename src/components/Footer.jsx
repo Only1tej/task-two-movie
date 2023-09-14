@@ -9,7 +9,7 @@ const Footer = () => {
     return (
         <>
             <div>
-                <div className="ml-[467px] mr-[481px] w-[492px] h-[145px] space-y-[36px] font-regular">
+                <div className="lg:ml-[467px] md:ml-[200px] mr-[481px] mb-[74px] w-[492px] h-[145px] space-y-[36px] font-regular">
                     <div className="flex flex-row justify-center">
                         {/* Socials */}
                         <img src={facebook} alt="facebook" />
