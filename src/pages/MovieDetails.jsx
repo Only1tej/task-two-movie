@@ -49,8 +49,8 @@ const MovieDetails = ({ title, release_date, poster_path, vote_average, vote_cou
     }
 
     return (
-        <div className='w-[1512px] h-[982px] flex flex-row'>
-            <div className='w-[226px] h-[982px] bg-white outline outline-1 outline-slate-400 rounded-r-[45px] mr-[37px]'>
+        <div className='lg:w-[1512px] h-[982px] flex flex-row'>
+            <div className='w-[226px] h-[982px] invisible md:visible sm:visible lg:visible bg-white outline outline-1 outline-slate-400 rounded-r-[45px] mr-[37px]'>
                 {/* Sidebar */}
                 <div className='flex flex-row mx-[20px] mt-[52px] w-[186px] h-[50px]'>
                     <img src={tv} alt="tv" className='w-[50px] h-[50px]' />
@@ -90,16 +90,16 @@ const MovieDetails = ({ title, release_date, poster_path, vote_average, vote_cou
             </div>
             <div>
                 {/* Movie details */}
-                <div className=' w-[1198px]'>
+                <div className=' lg:w-[1198px] md:w-[500px] w-[300px]'>
                     {/* trailer */}
-                    <img src={play1} alt="play" className='relative z-20 top-[250px] left-[580px]' />
+                    <img src={play1} alt="play" className='relative z-20 top-[250px] lg:left-[580px] md:left-[250px] left-[120px]' />
                     <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} className='rounded-xl w-[1198px] h-[449px]' />
                 </div>
-                <div className='flex flex-column'>
-                    <div>
+                <div className='lg:flex lg:flex-row md:flex md:flex-col sm:flex sm:flex-col'>
+                    <div className='flex flex-col'>
                         <div>
-                            <p className='text-4xl font-poppin font-semibold mt-3' data-testid='movie-title'>{movie.title}</p>
-                            <p className='font-poppin font-bold text-xl mt-2' data-testid='movie-runtime'>{movie.runtime} minutes</p>
+                            <p className='lg:text-4xl md:text-2xl font-poppin font-semibold mt-3' data-testid='movie-title'>{movie.title}</p>
+                            <p className='font-poppin font-bold lg:text-xl md:text-md mt-2' data-testid='movie-runtime'>{movie.runtime} minutes</p>
                             <div className='flex flex-row space-x-2 my-1'>
                                 {
                                     movie.genres.map((genre) => (
@@ -109,18 +109,14 @@ const MovieDetails = ({ title, release_date, poster_path, vote_average, vote_cou
                             </div>
                             <p className='text-xl font-medium font-poppin' data-testid='movie-release-date'>{movie.release_date}</p>
                         </div>
-                        <div className='w-[774px] h-[90px]'>
-                            {/* review and casting */}
-                            <p className='text-2xl font-poppin font-semibold mt-3'>Overview</p>
-                            <p className='text-xl font-normal font-poppin mt-4' data-testid='movie-overview'>{movie.overview}</p>
-                            <p className='w-[300px] bg-[#BE123C] pt-[13px] pb-[12px] px-[86px] my-[18px] rounded-[10px] font-poppin font-bold text-white' >LANGUAGE: {movie.original_language.toUpperCase()}</p>
-                            <p className='w-[300px] bg-[#BE123C] pt-[13px] pb-[12px] px-[66px] mb-[12px] rounded-[10px] font-poppin font-bold text-white'>POPULARITY: {movie.popularity}</p>
 
-                        </div>
+                        {/* review and casting */}
+                        <p className='lg:text-2xl md:text-xl font-poppin font-semibold mt-3'>Overview</p>
+                        <p className='lg:w-[774px] lg:h-[90px] md:w-[300px] sm:w-[200px] w-[140px] lg:text-xl font-normal font-poppin mt-4 md:mb-4' data-testid='movie-overview'>{movie.overview}</p>
+                        <p className='w-[300px] bg-[#BE123C] pt-[13px] pb-[12px] px-[86px] mt-[88px] mb-[16px] rounded-[10px] font-poppin font-bold text-white' >LANGUAGE: {movie.original_language.toUpperCase()}</p>
+                        <p className='w-[300px] bg-[#BE123C] pt-[13px] pb-[12px] px-[66px] mb-[12px] rounded-[10px] font-poppin font-bold text-white'>POPULARITY: {movie.popularity}</p>
                     </div>
-                    <div className='flex flex-column'>
-
-
+                    <div className='flex flex-col'>
                         <div className='w-[360px] ml-[26px] mr-[71px]'>
                             <div className='flex flex-row justify-end mb-[24px] mt-[29px]'>
                                 <p className='font-poppin font-semibold mr-40'>Votes: {movie.vote_count}</p>
@@ -128,7 +124,7 @@ const MovieDetails = ({ title, release_date, poster_path, vote_average, vote_cou
                                 <span className='flex items-center font-poppin font-bold text-[#E8E8E8]'>{movie.vote_average}/10</span>
                             </div>
                             {/* showtime buttons */}
-                            <div className='flex flex-row w-[360px] h-[55px] bg-[#BE123C] pt-[13px] pb-[12px] px-[86px] mb-[12px] rounded-[10px]'>
+                            <div className='flex flex-row w-[360px] h-[55px] bg-[#BE123C] pt-[13px] pb-[12px] px-[86px] mb-[12px] md:ml-[4px] rounded-[10px]'>
                                 <img src={ticket} alt="ticket" className='w-[25px] h-[25px] mr-[10px] ' />
                                 <p className='font-poppin font-medium text-xl text-white'>See Showtimes</p>
                             </div>
