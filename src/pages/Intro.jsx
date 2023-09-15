@@ -13,18 +13,10 @@ const API_SEARCH =
 const API_SEARCH1 =
     "https://api.themoviedb.org/3/movie/top_rated?api_key=986c9935e1e74f8333fab79bb69892a9&query";
 
-// fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1'
 function Intro({ }) {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
-        if (!movies) {
-            return (
-                <div className="loadingSpinnerContainer">
-                    <div className="loadingSpinner"></div>
-                </div>
-            )
-        }
         fetch(API_SEARCH1)
             .then((res) => res.json())
             .then((data) => {
@@ -47,28 +39,17 @@ function Intro({ }) {
             <div>
                 <div>
                     <Header />
-                    {/* <div className="grid grid-cols-4 ml-[98px] mt-[161px] mr-[102px] mb-[147px] ">
-                        {movies.map((movie) => (
-                            <Home key={movie.id} {...movie} />
-                        ))}
-                    </div> */}
                     <h1 className="font-regular text-4xl font-bold mt-[70px] ml-[98px]">Featured Movie</h1>
                     <div className="grid lg:grid-cols-4 sm:grid-cols-1 md:grid-cols-2 ml-[98px] mt-[100px] mr-[102px] mb-[147px] ">
                         {slicedMovies.map((movie) => (
                             <div>
-                                <a href={`/movies/${movie.id}`}>
+
+                                <Link to={`/movies/${movie.id}`}>
                                     <Home key={movie.id} {...movie} />
-                                </a>
-                                {/* < Link to={`/movies/${movie.id}`}>{movie.title}</Link>
-                                <Home key={movie.id} {...movie} /> */}
+                                </Link>
                             </div>
                         ))}
                     </div>
-                    {/* <div className="grid grid-cols-4 ml-[98px] mt-[161px] mr-[102px] mb-[147px] ">
-
-                        <Home {...movies} />
-
-                    </div> */}
                     <Footer />
                 </div>
             </div >

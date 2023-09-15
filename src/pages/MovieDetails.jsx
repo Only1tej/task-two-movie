@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import '../index.css'
 import tvSeries from '../assets/TV Show.png'
 import tv from '../assets/tv.jpg'
@@ -15,15 +15,29 @@ import play1 from '../assets/Play (1).png'
 const MovieDetails = ({ title, release_date, poster_path, vote_average, vote_count, overview, original_language, popularity }) => {
     const { movieId } = useParams()
     const [movie, setMovie] = useState(null)
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=986c9935e1e74f8333fab79bb69892a9`)
-            // https://api.themoviedb.org/3/movie/{movie_id}
-            .then((response) => response.json())
-            .then((data) => setMovie(data))
-            .catch((error) => console.error(error))
-    }, [movieId])
+        const fetchData = async () => {
+            try {
+                const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=986c9935e1e74f8333fab79bb69892a9`)
+                if (!response.ok) {
+                    throw new Error('API request failed');
+                }
+                const jsonData = await response.json();
+                setMovie(jsonData);
+            } catch (error) {
+                setError('Error fetching data from the API');
+                console.log(error);
+            }
+        };
+        fetchData();
+    }, [])
     console.log(movie);
+    if (error) {
+        return <div className='text-[50px] font-poppin font-bold text-center mt-20 text-[#BE123C]'>{error}</div>
+    }
+
     if (!movie) {
         return (
             <div className="loadingSpinnerContainer">
@@ -31,24 +45,6 @@ const MovieDetails = ({ title, release_date, poster_path, vote_average, vote_cou
             </div>
         )
     }
-
-    // const newDate = release_date
-    // const date = new Date(newDate)
-    // const formatDate = date.toUTCString()
-    // release_date = formatDate
-    // console.log(release_date);
-
-    const currDate = release_date
-    const ft = new Date(currDate)
-    if (typeof ft === 'object' && ft !== null && 'toUTCString' in ft) {
-        // console.log("The data type is", typeof ft)
-        // console.log(ft.toUTCString())
-        console.log(ft);
-    }
-    // else {
-    //     console.log("Invalid Date Object")
-    // }
-    const utcDate = release_date
 
     return (
         <div className='w-[1512px] h-[982px] flex flex-row'>
@@ -60,7 +56,7 @@ const MovieDetails = ({ title, release_date, poster_path, vote_average, vote_cou
                 </div>
                 <div className='flex flex-row justify-center items-center w-[226px] h-[86px]'>
                     <img src={home} alt="home" className='w-[25px] h-[25px] ml-[42px] mr-[15px]' />
-                    <p className='mr-[72px] my-[28px] font-poppin text-xl font-semibold text-[#666]'>Home</p>
+                    <Link to={'/'} className='mr-[72px] my-[28px] font-poppin text-xl font-semibold text-[#666]' >Home</Link>
                 </div>
                 <div className='flex flex-row justify-center items-center w-[226px] h-[86px]  bg-[#F8E7EB]  border-[#BE123C] border-r-4'>
                     <img src={moviep} alt="movie" className='w-[25px] h-[25px] ml-[42px] mr-[15px]' />
@@ -102,20 +98,12 @@ const MovieDetails = ({ title, release_date, poster_path, vote_average, vote_cou
                         <div>
                             <p className='text-4xl font-poppin font-semibold mt-3' data-testid='movie-title'>{movie.title}</p>
                             <p className='font-poppin font-bold text-xl mt-2' data-testid='movie-runtime'>{movie.runtime} minutes</p>
-                            {/* {movies.map((movie) => (
-                            <Home key={movie.id} {...movie} />
-                        ))}
-                    </div>  */}
                             <div className='flex flex-row space-x-2'>
                                 {
                                     movie.genres.map((genre) => (
                                         <p className='bg-[#BE123C] px-4 text-white rounded-2xl'>{genre.name}</p>
                                     ))
                                 }
-
-                                {/* <p className='bg-[#BE123C] px-4 text-white rounded-2xl'>{movie.genres[0].name}</p>
-                                <p className='bg-[#BE123C] px-4 text-white rounded-2xl'>{movie.genres[1].name}</p>
-                                <p className='bg-[#BE123C] px-4 text-white rounded-2xl'>{movie.genres[2].name}</p> */}
                             </div>
                             <p className='text-xl font-medium font-poppin' data-testid='movie-release-date'>{movie.release_date}</p>
                         </div>
