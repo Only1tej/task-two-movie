@@ -12,6 +12,8 @@ import list from '../assets/List.png'
 import star from '../assets/Star.png'
 import play1 from '../assets/Play (1).png'
 
+
+
 const MovieDetails = ({ title, release_date, poster_path, vote_average, vote_count, overview, original_language, popularity }) => {
     const { movieId } = useParams()
     const [movie, setMovie] = useState(null)
@@ -98,10 +100,10 @@ const MovieDetails = ({ title, release_date, poster_path, vote_average, vote_cou
                         <div>
                             <p className='text-4xl font-poppin font-semibold mt-3' data-testid='movie-title'>{movie.title}</p>
                             <p className='font-poppin font-bold text-xl mt-2' data-testid='movie-runtime'>{movie.runtime} minutes</p>
-                            <div className='flex flex-row space-x-2'>
+                            <div className='flex flex-row space-x-2 my-1'>
                                 {
                                     movie.genres.map((genre) => (
-                                        <p className='bg-[#BE123C] px-4 text-white rounded-2xl'>{genre.name}</p>
+                                        <p className=' outline outline-1 outline-[#F8E7EB]  px-4 text-[#BE123C] rounded-2xl'>{genre.name}</p>
                                     ))
                                 }
                             </div>

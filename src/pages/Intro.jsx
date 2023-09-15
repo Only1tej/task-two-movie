@@ -7,17 +7,14 @@ import Footer from "../components/Footer";
 import "../App.css";
 import MovieDetails from "../pages/MovieDetails";
 
-const API_URL = "https://api.themoviedb.org/3/movie/{movie_id}";
-const API_SEARCH =
-    "https://api.themoviedb.org/3/movie/popular?api_key=986c9935e1e74f8333fab79bb69892a9&query";
-const API_SEARCH1 =
-    "https://api.themoviedb.org/3/movie/top_rated?api_key=986c9935e1e74f8333fab79bb69892a9&query";
 
-function Intro({ }) {
+const API_SEARCH = "https://api.themoviedb.org/3/movie/top_rated?api_key=986c9935e1e74f8333fab79bb69892a9&query";
+
+function Intro() {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
-        fetch(API_SEARCH1)
+        fetch(API_SEARCH)
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
