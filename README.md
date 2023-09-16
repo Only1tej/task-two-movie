@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Movie App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An application that fetch top rated movies (top ten) from TMDB API, display in a card fromat and further display more detail about each movie in a different page (MovieDetails page), built with React, JavaScript, and TailwindCSS. Hosted on Vercel [Live Site here](https://task-two-movie-app-gamma.vercel.app/).
 
 ## Available Scripts
 
@@ -39,70 +39,8 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+This project was deployed to vercel:
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-Project Name & Pitch
-Movie App
-
-An application that fetch top rated movies (top ten) from TMDB API, display in a card fromat and further display more detail about each movie in a different page (MovieDetails page), built with React, JavaScript, and TailwindCSS.
-
-Project Status
-Completed
-
-Project Screen Shot(s)
-
-Installation and Setup Instructions
-Example:
-Clone down this repository. You will need node and npm installed globally on your machine.
-
-Installation:
-
-npm install
-
-To Run Test Suite:
-
-npm test
-
-To Start Server:
-
-npm start
-
-To Visit App:
-
-localhost:3000/ideas
-
-This was a 3 - 4 days project built during my HNGx internship program. Task challenge requires to build a dynamic movie discovery app that interacts with a real API to fetch and display movie data.
-
-Due to time constraints and also the instructions given, i was not able to make some of the components functional, like the sign up button, the social media icons, the buttons on the side bar in the movie details page and others that you might notice not to be functional. I started this process by using the create-react-app boilerplate.
-
-One of the main challenges i ran into was the UI design, but at the end of the day, i was able to get it to the near-excellent level.
-
-At the end of the day, the technologies implemented in this project are React, React-Router, and a significant amount of Javascript, JSX, and TailwindCSS. I chose to use the create-react-app boilerplate to minimize initial setup and invest more time in diving into weird technological rabbit holes.
+https://task-two-movie-app-gamma.vercel.app/

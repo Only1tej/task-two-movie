@@ -113,7 +113,7 @@ const MovieDetails = ({ title, release_date, poster_path, vote_average, vote_cou
                         {/* review and casting */}
                         <p className='lg:text-2xl md:text-xl font-poppin font-semibold mt-3'>Overview</p>
                         <p className='lg:w-[774px] lg:h-[90px] md:w-[300px] sm:w-[200px] w-[140px] lg:text-xl font-normal font-poppin mt-4 md:mb-4' data-testid='movie-overview'>{movie.overview}</p>
-                        <p className='w-[300px] bg-[#BE123C] pt-[13px] pb-[12px] px-[86px] mt-[88px] mb-[16px] rounded-[10px] font-poppin font-bold text-white' >LANGUAGE: {movie.original_language.toUpperCase()}</p>
+                        <p className='w-[300px] bg-[#BE123C] pt-[13px] pb-[12px] px-[86px] mt-[68px] mb-[16px] rounded-[10px] font-poppin font-bold text-white' >LANGUAGE: {movie.original_language.toUpperCase()}</p>
                         <p className='w-[300px] bg-[#BE123C] pt-[13px] pb-[12px] px-[66px] mb-[12px] rounded-[10px] font-poppin font-bold text-white'>POPULARITY: {movie.popularity}</p>
                     </div>
                     <div className='flex flex-col'>
